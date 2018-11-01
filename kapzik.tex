@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{fancyhdr}
+\usepackage{datetime} % access to \currenttime
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\setlength{\parskip}{2ex}
+
+\title{\vspace{-5em}
+KAP ZIK \\
+\vspace{1em}
+Un jeu pour travailler la musique et le solfège}
+\author{par Christophe Gragnic}
+\date{} 
+
+\pagestyle{fancy}
+\fancyhead[R]{\today~-~\currenttime}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\section{Introduction}
+
+Voici un jeu qui vous fera travailler le nom des notes, la construction des
+gammes, des accords…
+
+Pour l’instant, seule la mécanique du jeu est décrite, il n’y a pas encore de
+thème, d’illustration.
+
+Voir la section \ref{contact} à la fin de ce document si vous voulez partager
+vos idées.
+
+\newpage
+
+\section{Je veux jouer tout de suite !}
+
+Avec plaisir ! C’est le meilleur moyen d’apprendre à jouer.
+
+\subsection{Préparation}
+
+\begin{itemize}
+\item Si ce n’est pas encore fait, découpez les cartes.
+\item Regroupez et mélangez les cartes de tirage au sort :
+    \begin{itemize}
+    \item noms de notes
+    \item degrés
+    \end{itemize}
+\item Vous pouvez commencer !
+\end{itemize}
+
+\subsection{Un exemple de partie}
+
+Le premier parcours à essayer est le parcours « Débutant 1 », vous le trouverez
+sur une des fiches du jeu mais nous vous le montrons ci-dessous :
+
+\begin{tikzpicture}
+\node[draw] (A) at (0,0) {AVO};
+\node[draw] (M) at (2,0) {MAK};
+\node[draw] (K) at (4,1) {KAP};
+\node[draw] (Z) at (4,-1) {ZIK};
+\draw (A) -- (M);
+\draw (M) -- (K);
+\draw (M) -- (Z);
+\end{tikzpicture}
+
+\section{Idées à exploiter}
+
+\begin{itemize}
+\item Demi-tons entre Mi et Fa, et entre Si et Do.
+\item Clefs (Sol, Fa…)
+\item Notes sur le clavier, sur la guitare, sur une portée.
+\item Rythme, chiffrage des mesures.
+\item Cadences.
+\item Sciences physiques de la musique (vibrations, fréquences…).
+\item Exécution de la musique : taper dans les mains, chanter, jouer un
+    instrument.
+\end{itemize}
+
+\section{Contact} \label{contact}
+
+\setlength{\parindent}{0pt}
+
+Site~: \url{http://profgra.org/kapzik/}
+
+Email~: \url{profgra.org@gmail.com}
+
+\end{document}
