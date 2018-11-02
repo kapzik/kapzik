@@ -23,6 +23,12 @@ Un jeu pour travailler la musique et le solfège}
 \fancyfoot[C]{\thepage}
 
 % Mes commandes
+\newcommand{\B}[0]
+{$\flat$}
+
+\newcommand{\D}[0]
+{$\sharp$}
+
 \newcommand{\carte}[1]
 {\textbf{#1}}
 
@@ -52,18 +58,18 @@ Un jeu pour travailler la musique et le solfège}
 \newcommand{\horlogenotes}[0]
 {
 \begin{tikzpicture}
-\node[draw] (C)  at (   0,  0)   {Do};
-\node[draw] (Db) at ( 1.2, -0.7) {Do $\sharp$/Ré $\flat$};
-\node[draw] (D)  at ( 1.9, -1.6) {Ré};
-\node[draw] (Eb) at ( 2.2, -2.5) {Ré $\sharp$/Mi $\flat$};
-\node[draw] (E)  at ( 1.9, -3.3) {Mi};
-\node[draw] (F)  at ( 1.2, -4) {Fa};
-\node[draw] (Gb) at (   0, -4.7) {Fa $\sharp$/Sol $\flat$};
-\node[draw] (G)  at (-1.2, -4) {Sol};
-\node[draw] (Ab) at (-1.9, -3.3) {Sol $\sharp$/La $\flat$};
-\node[draw] (A)  at (-2.2, -2.5) {La};
-\node[draw] (Bb) at (-1.9, -1.6) {La $\sharp$/Si $\flat$};
-\node[draw] (B)  at (-1.2, -0.7) {Si};
+\node[draw] (C)  at (   0, -0.2)   {Do};
+\node[draw] (Db) at ( 1.7, -0.7) {Do \D/Ré \B};
+\node[draw] (D)  at ( 2.3, -1.6) {Ré};
+\node[draw] (Eb) at ( 2.6, -2.45) {Ré \D/Mi \B};
+\node[draw] (E)  at ( 2.3, -3.3) {Mi};
+\node[draw] (F)  at ( 1.4, -4) {Fa};
+\node[draw] (Gb) at (   0, -4.5) {Fa \D/Sol \B};
+\node[draw] (G)  at (-1.4, -4) {Sol};
+\node[draw] (Ab) at (-2.3, -3.3) {Sol \D/La \B};
+\node[draw] (A)  at (-2.6, -2.45) {La};
+\node[draw] (Bb) at (-2.3, -1.6) {La \D/Si \B};
+\node[draw] (B)  at (-1.4, -0.7) {Si};
 \draw (C) -- (Db) -- (D)  -- (Eb) -- (E)  -- (F) -- (Gb)
           -- (G)  -- (Ab) -- (A)  -- (Bb) -- (B) -- (C);
 \end{tikzpicture}
@@ -96,12 +102,15 @@ Avec plaisir ! C’est le meilleur moyen d’apprendre à jouer.
 \subsection{Préparation}
 
 \begin{itemize}
-\item Si ce n’est pas encore fait, découpez les cartes.
+\item Si ce n’est pas encore fait, découpez les cartes. \\
+    Attention, avec ce prototype vous feriez mieux de ne pas les couper en
+    fait.
 \item Regroupez les cartes « question ». Il sera bien pratique de les laisser
     dans l’ordre alphabétique de leur code. Attention, dans le prototype du
     jeu il n’y a pas de carte question, il faut se référer à la liste en
     section \ref{liste questions}.
-\item Regroupez et mélangez les cartes de tirage au sort :
+\item Regroupez et mélangez les cartes de tirage au sort (en fait mieux vaut
+    couper des feuilles de brouillon et écrire les noms de notes dessus) :
     \begin{itemize}
     \item noms de notes
     \item noms de notes anglos-saxons
@@ -109,7 +118,7 @@ Avec plaisir ! C’est le meilleur moyen d’apprendre à jouer.
     \item notes
     \item nombre de bémols ou de dièses
     \end{itemize}
-\item Placez les cartes « Aide » à disposition des joueurs :
+\item Placez les cartes « Aide » à disposition des joueurs (non plus) :
     \begin{itemize}
     \item horloge des noms de notes
     \item harmonisation de la gamme majeure
@@ -275,27 +284,53 @@ Par exemple, \QST{EXU} se prononce « échou ».
 
 \section{Éléments à découper}
 
+\subsection{Fiches Aide}
+
 \horlogenoms
 \hspace{1cm}
 \horlogenotes
 
 \vspace{1cm}
 
+\begin{tabular}{ | *{9}{c|} }
+    \hline
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 1 & \D/\B \\
+    \hline
+    Do & Ré & Mi & Fa & Sol & La & Si & Do & 0 \\
+    \hline
+    Ré \B & Mi \B & Fa & Sol \B & La \B & Si \B & Do & Ré \B & 5\B \\
+    \hline
+    Ré & Mi & Fa \D & Sol & La & Si & Do \D & Ré & 2\D \\
+    \hline
+    Mi \B & Fa & Sol & La \B & Si \B & Do & Ré & Mi \B & 3\B \\
+    \hline
+    Mi & Fa \D & Sol \D & La & Si & Do \D & Ré \D & Mi & 4\D \\
+    \hline
+    Fa & Sol & La & Si \B & Do & Ré & Mi & Fa & 1\B \\
+    \hline
+    Fa \D & Sol \D & La \D & Si & Do \D & Ré \D & Mi \D & Fa \D & 6\D \\
+    \hline
+    Sol \B & La \B & Si \B & Do \B & Ré \B & Mi \B & Fa & Sol \B & 6\B \\
+    \hline
+    Sol & La & Si & Do & Ré & Mi & Fa \D & Sol & 1\D \\
+    \hline
+    La \B & Si \B & Do & Ré \B & Mi \B & Fa & Sol & La \B & 4\B \\
+    \hline
+    La & Si & Do \D & Ré & Mi & Fa \D & Sol \D & La & 3\D \\
+    \hline
+    Si \B & Do & Ré & Mi \B & Fa & Sol & La & Si \B & 2\B \\
+    \hline
+    Si & Do \D & Ré \D & Mi & Fa \D & Sol \D & La \D & Si & 5\D \\
+    \hline
+\end{tabular}
+
+\subsection{Cartes pour tirages au sort}
+
 \begin{tabular}{ | *{7}{p{0.1cm}cp{0.1cm} |} }
     \hline
     & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si & \\
     \hline
     & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si & \\
-    \hline
-\end{tabular}
-
-\vspace{1cm}
-
-\begin{tabular}{ | *{8}{p{0.1cm}cp{0.1cm} |} }
-    \hline
-    & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si &&& Do & \\
-    \hline
-    & Ré $\flat$ &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si &&& Do & \\
     \hline
 \end{tabular}
 
