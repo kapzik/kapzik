@@ -25,8 +25,8 @@ for c1 in consonnes:
         for c2 in consonnes:
             code = c1+v+c2
             if code not in ["BIT", "DIK", "DUK", "FAF", "FUK", "KUL",
-                            "NOM", "PUT", "SEX",
-                            "TEP", "ZEX", "ZOB", "ZUT"]:
+                            "NOM", "PUT", "SEX", "SUS",
+                            "TEP", "XIT", "ZEX", "ZOB", "ZUT"]:
                 nb += 1
                 codes.append(code)
 
