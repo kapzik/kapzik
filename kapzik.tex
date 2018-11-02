@@ -7,6 +7,7 @@
 \usepackage{datetime} % access to \currenttime
 \usepackage{hyperref}
 \usepackage{tikz}
+\usetikzlibrary{shapes}
 
 \setlength{\parskip}{2ex}
 
@@ -20,6 +21,53 @@ Un jeu pour travailler la musique et le solfège}
 \pagestyle{fancy}
 \fancyhead[R]{\today~-~\currenttime}
 \fancyfoot[C]{\thepage}
+
+% Mes commandes
+\newcommand{\carte}[1]
+{\textbf{#1}}
+
+\newcommand{\parcours}[1]
+{\textbf{#1}}
+
+\newcommand{\QST}[1]
+{\textbf{#1}}
+
+\newcommand{\mode}[1]
+{\textbf{#1}}
+
+\newcommand{\horlogenoms}[0]
+{
+\begin{tikzpicture}
+\node[draw] (C) at (   0,  0)   {Do};
+\node[draw] (D) at ( 1.5, -0.7) {Ré};
+\node[draw] (E) at ( 1.8, -2)   {Mi};
+\node[draw] (F) at ( 0.8, -3.2) {Fa};
+\node[draw] (G) at (-0.8, -3.2) {Sol};
+\node[draw] (A) at (-1.8, -2)   {La};
+\node[draw] (B) at (-1.5, -0.7) {Si};
+\draw (C) -- (D) -- (E) -- (F) -- (G) -- (A) -- (B) -- (C);
+\end{tikzpicture}
+}
+
+\newcommand{\horlogenotes}[0]
+{
+\begin{tikzpicture}
+\node[draw] (C)  at (   0,  0)   {Do};
+\node[draw] (Db) at ( 1.2, -0.7) {Do $\sharp$/Ré $\flat$};
+\node[draw] (D)  at ( 1.9, -1.6) {Ré};
+\node[draw] (Eb) at ( 2.2, -2.5) {Ré $\sharp$/Mi $\flat$};
+\node[draw] (E)  at ( 1.9, -3.3) {Mi};
+\node[draw] (F)  at ( 1.2, -4) {Fa};
+\node[draw] (Gb) at (   0, -4.7) {Fa $\sharp$/Sol $\flat$};
+\node[draw] (G)  at (-1.2, -4) {Sol};
+\node[draw] (Ab) at (-1.9, -3.3) {Sol $\sharp$/La $\flat$};
+\node[draw] (A)  at (-2.2, -2.5) {La};
+\node[draw] (Bb) at (-1.9, -1.6) {La $\sharp$/Si $\flat$};
+\node[draw] (B)  at (-1.2, -0.7) {Si};
+\draw (C) -- (Db) -- (D)  -- (Eb) -- (E)  -- (F) -- (Gb)
+          -- (G)  -- (Ab) -- (A)  -- (Bb) -- (B) -- (C);
+\end{tikzpicture}
+}
 
 \begin{document}
 
@@ -49,36 +97,222 @@ Avec plaisir ! C’est le meilleur moyen d’apprendre à jouer.
 
 \begin{itemize}
 \item Si ce n’est pas encore fait, découpez les cartes.
+\item Regroupez les cartes « question ». Il sera bien pratique de les laisser
+    dans l’ordre alphabétique de leur code. Attention, dans le prototype du
+    jeu il n’y a pas de carte question, il faut se référer à la liste en
+    section \ref{liste questions}.
 \item Regroupez et mélangez les cartes de tirage au sort :
     \begin{itemize}
     \item noms de notes
+    \item noms de notes anglos-saxons
     \item degrés
+    \item notes
+    \item nombre de bémols ou de dièses
+    \end{itemize}
+\item Placez les cartes « Aide » à disposition des joueurs :
+    \begin{itemize}
+    \item horloge des noms de notes
+    \item harmonisation de la gamme majeure
     \end{itemize}
 \item Vous pouvez commencer !
 \end{itemize}
 
 \subsection{Un exemple de partie}
 
-Le premier parcours à essayer est le parcours « Débutant 1 », vous le trouverez
-sur une des fiches du jeu mais nous vous le montrons ci-dessous :
+Une fois que vous aurez fait quelques parties de ce type, vous voudrez utiliser
+des règles plus sophistiquées. Vous les trouverez dans la partie \ref{modes}.
+
+\subsubsection{Choix du parcours}
+
+Le premier parcours à essayer est le parcours \parcours{Débutant 1}, vous le
+trouverez dans la section \ref{parcours} plus loin dans cette notice mais nous
+vous le montrons ci-dessous :
 
 \begin{tikzpicture}
-\node[draw] (A) at (0,0) {AVO};
-\node[draw] (M) at (2,0) {MAK};
-\node[draw] (K) at (4,1) {KAP};
-\node[draw] (Z) at (4,-1) {ZIK};
-\draw (A) -- (M);
-\draw (M) -- (K);
-\draw (M) -- (Z);
+\node[draw] (A) at (0, 0) {AVO};
+\node[draw] (M) at (2, 0) {MAK};
+\node[draw] (K) at (4, 1) {KAP};
+\node[draw] (Z) at (6, 1) {ZIK};
+\node[draw,minimum height=6mm] (X) at (4,-1) {...};
+\node[draw,minimum height=6mm] (Y) at (6,-1) {...};
+\node[draw,rounded corners=3pt] (D1) at (8.5, 1) {Débutant 1};
+\node[draw,minimum height=6mm, rounded corners=3pt] (D2) at (8.5,-1) {...};
+\draw (A) -- (M) -- (K) -- (Z);
+\draw (M) -- (X) -- (Y);
 \end{tikzpicture}
+
+La première question de ce parcours est celle qui se trouve le plus à gauche.
+C’est donc la question \QST{AVO}. Retrouvez-là dans le paquet des questions
+et posez-là face visible devant les joueurs.
+
+Le mode de jeu le plus simple est le \mode{mode collaboratif} : les joueurs
+doivent finir le parcours en moins de 10 minutes.
+
+C’est donc le moment de démarrer un compte à rebours de 10 minutes !
+
+\subsubsection{Quelques tours de jeu}
+
+La première question, codée \QST{AVO}, est :
+
+\begin{quote}
+Tirez une carte \carte{nom de note} et donner la note suivante dans l’horloge
+des noms de notes. Exemple : Si vous tirez « Fa » il faut dire « Sol ».
+\end{quote}
+
+Pour chaque joueur, il faudra tirer une carte \carte{nom de note} et poser par
+exemple la question (si le nom de note tiré est « Fa ») : « Quelle est la note
+qui suit Fa ? » . Avec tout l’aide nécessaire donné par les cartes « Aide »,
+le joueur finira bien par donner la bonne réponse, ici Sol, et on passera au
+joueur suivant.
+
+Un tour de jeu avec la question \QST{AVO} consiste à utiliser cette question
+pour chaque joueur. Suivant les tirages, ils auront donc peut-être des
+questions différentes !
+
+Après trois tours de jeu, on passe à la question suivante.
+
+\subsubsection{Fin de la partie}
+
+Dans le mode \mode{collaboratif}, la partie se termine dans un des deux cas
+suivants :
+
+\begin{itemize}
+    \item le compte à rebours est terminé (les 10 minutes sont écoulées) ;
+    \item il y a eu trois tours de jeu avec la dernière question du parcours
+        (pour le parcours \parcours{Débutant 1}, c’est la question \QST{ZIK}).
+\end{itemize}
+
+\section{Modes de jeu} \label{modes}
+
+\subsection{Mode collaboratif}
+
+C’est le mode expliqué dans la partie donnée en exemple. Les joueurs ont tous
+gagné s’ils finissent ensemble le parcours qu’ils ont choisi en moins de
+10 minutes (ou toute autre durée convenue à l’avance).
+
+\subsection{Mode avec handicap}
+
+En cours d’élaboration.
+
+Les réponses sont chronométrées. Pour gagner, un joueur devra s’être davantage
+amélioré que les autres joueurs.
+
+\subsection{Mode combat}
+
+En cours d’élaboration.
+
+Les réponses sont chronométrées. Pour gagner, un joueur devrai avoir
+globalement répondu plus vite que les autres joueurs.
+
+\section{Liste des parcours de questions} \label{parcours}
+
+\subsection{Niveau Débutant}
+
+\begin{tikzpicture}
+\node[draw] (A) at (0, 0) {AVO};
+\node[draw] (M) at (2, 0) {MAK};
+\node[draw] (K) at (4, 1) {KAP};
+\node[draw] (Z) at (6, 1) {ZIK};
+\node[draw] (B) at (4,-1) {ALE};
+\node[draw] (C) at (6,-1) {OLI};
+\node[draw,rounded corners=3pt] (D1) at (8.5, 1) {Débutant 1};
+\node[draw,rounded corners=3pt] (D2) at (8.5,-1) {Débutant 2};
+\draw (A) -- (M);
+\draw (M) -- (K) -- (Z);
+\draw (M) -- (B) -- (C);
+\end{tikzpicture}
+
+\subsection{Niveau Intermédiaire}
+
+Il n’y a pas encore de parcours pour le niveau intermédiaire.
+
+\subsection{Niveau Expert}
+
+Il n’y a pas encore de parcours pour les experts.
+
+\section{Questions}
+
+Les questions sont identifiées par un code à trois lettres.
+
+\subsection{Prononciation des codes}
+
+\begin{itemize}
+    \item E se prononce « é » ;
+    \item S se prononce « ss » ;
+    \item U se prononce « ou » ;
+    \item X se prononce « ch ».
+\end{itemize}
+
+Par exemple, \QST{EXU} se prononce « échou ».
+
+\subsection{Liste des questions} \label{liste questions}
+
+\begin{tabular}{ c p{12cm} }
+    \QST{ALE} & Tirez une carte \carte{nom de note} et considérez que c’est la
+                fondamentale. Donner la tierce et la quinte. Exemple : Si
+                vous tirez « Fa » il faut dire « Fa, La, Do ». \\
+    \QST{AVO} & Tirez une carte \carte{nom de note} et donner la note suivante
+                dans l’horloge des noms de notes. Exemple : Si vous tirez
+                « Fa » il faut dire « Sol ». \\
+    \QST{KAP} & Tirez une carte \carte{nom de note} et donner les sept notes
+                suivantes dans l’horloge des noms de notes. Exemple : Si vous
+                tirez « Fa » il faut dire « Fa, Sol, La, Si, Do, Ré, Mi,
+                Fa ». \\
+    \QST{MAK} & Tirez une carte \carte{nom de note} et donner la note
+                précédente dans l’horloge des noms de notes. Exemple : Si vous
+                tirez « Fa » il faut dire « Mi ». \\
+    \QST{OLI} & Tirez une carte \carte{nom de note} et considérez que c’est la
+                fondamentale. Donner la tierce, la quinte et la septième.
+                Exemple : Si vous tirez « Fa » il faut dire « Fa, La, Do
+                Mi ». \\
+    \QST{ZIK} & Tirez une carte \carte{nom de note} et donner les sept notes
+                précédentess dans l’horloge des noms de notes. Exemple : Si
+                vous tirez « Fa » il faut dire « Fa, Mi, Ré, Do, Si, La, Sol,
+                Fa ».
+\end{tabular}
+
+\newpage
+
+\section{Éléments à découper}
+
+\horlogenoms
+\hspace{1cm}
+\horlogenotes
+
+\vspace{1cm}
+
+\begin{tabular}{ | *{7}{p{0.1cm}cp{0.1cm} |} }
+    \hline
+    & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si & \\
+    \hline
+    & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si & \\
+    \hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{ | *{8}{p{0.1cm}cp{0.1cm} |} }
+    \hline
+    & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si &&& Do & \\
+    \hline
+    & Ré $\flat$ &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si &&& Do & \\
+    \hline
+\end{tabular}
+
+\newpage
 
 \section{Idées à exploiter}
 
+Liste des idées à incorporer dans le jeu ou les questions.
+
 \begin{itemize}
 \item Demi-tons entre Mi et Fa, et entre Si et Do.
+\item Harmonisation de la gamme majeure (avec tierces, triades, accords à 4
+    sons…)
 \item Clefs (Sol, Fa…)
 \item Notes sur le clavier, sur la guitare, sur une portée.
 \item Rythme, chiffrage des mesures.
+\item Relatifs mineurs/majeurs, modes
 \item Cadences.
 \item Sciences physiques de la musique (vibrations, fréquences…).
 \item Exécution de la musique : taper dans les mains, chanter, jouer un
