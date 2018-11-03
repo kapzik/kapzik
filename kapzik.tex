@@ -75,6 +75,29 @@ Un jeu pour travailler la musique et le solfège}
 \end{tikzpicture}
 }
 
+\newcommand{\scores}[0]
+{
+\begin{tabular}{ | *{7}{p{0.1cm}cp{0.1cm} |} }
+    \hline
+    Question &&& J1 &&& J2 &&& J3 &&& J4 &&& J5 &&& J6 \\
+    \hline
+    &&&&&&&&&&&&&&&&&& \\
+    \hline
+    &&&&&&&&&&&&&&&&&& \\
+    \hline
+    &&&&&&&&&&&&&&&&&& \\
+    \hline
+    &&&&&&&&&&&&&&&&&& \\
+    \hline
+    &&&&&&&&&&&&&&&&&& \\
+    \hline
+    &&&&&&&&&&&&&&&&&& \\
+    \hline
+    &&&&&&&&&&&&&&&&&& \\
+    \hline
+\end{tabular}
+}
+
 \begin{document}
 
 \maketitle
@@ -101,16 +124,29 @@ Avec plaisir ! C’est le meilleur moyen d’apprendre à jouer.
 
 \subsection{Préparation}
 
+Attention, avec ce premier prototype il n’y a rien à découper.
+
+Pour les questions, il faut se référer à la liste en section
+\ref{liste questions}, et pour les fiches d’aide, c’est en section
+\ref{aide}.
+
+Pour les tirages au sort, mieux vaut fabriquer des cartes en découpant des
+feuilles de brouillon. Vous aurez besoin des cartes :
+
 \begin{itemize}
-\item Si ce n’est pas encore fait, découpez les cartes. \\
-    Attention, avec ce prototype vous feriez mieux de ne pas les couper en
-    fait.
+\item noms de notes
+\item degrés
+\item notes (inutiles dans les parcours pour débutants)
+\item nombre de bémols ou de dièses (inutiles dans les parcours pour débutants)
+\end{itemize}
+
+Vous pouvez donc ignorer ce qui suit et passer à la section suivante !
+
+\begin{itemize}
+\item Si ce n’est pas encore fait, découpez toutes les cartes.
 \item Regroupez les cartes « question ». Il sera bien pratique de les laisser
-    dans l’ordre alphabétique de leur code. Attention, dans le prototype du
-    jeu il n’y a pas de carte question, il faut se référer à la liste en
-    section \ref{liste questions}.
-\item Regroupez et mélangez les cartes de tirage au sort (en fait mieux vaut
-    couper des feuilles de brouillon et écrire les noms de notes dessus) :
+    dans l’ordre alphabétique de leur code.
+\item Regroupez et mélangez les cartes de tirage au sort :
     \begin{itemize}
     \item noms de notes
     \item noms de notes anglos-saxons
@@ -118,7 +154,7 @@ Avec plaisir ! C’est le meilleur moyen d’apprendre à jouer.
     \item notes
     \item nombre de bémols ou de dièses
     \end{itemize}
-\item Placez les cartes « Aide » à disposition des joueurs (non plus) :
+\item Placez les cartes « Aide » à disposition des joueurs :
     \begin{itemize}
     \item horloge des noms de notes
     \item harmonisation de la gamme majeure
@@ -133,9 +169,8 @@ des règles plus sophistiquées. Vous les trouverez dans la partie \ref{modes}.
 
 \subsubsection{Choix du parcours}
 
-Le premier parcours à essayer est le parcours \parcours{Débutant 1}, vous le
-trouverez dans la section \ref{parcours} plus loin dans cette notice mais nous
-vous le montrons ci-dessous :
+Le premier parcours à essayer est le parcours \parcours{Débutant 1}, en haut
+sur cette figure :
 
 \begin{tikzpicture}
 \node[draw] (A) at (0, 0) {AVO};
@@ -146,12 +181,19 @@ vous le montrons ci-dessous :
 \node[draw,minimum height=6mm] (Y) at (6,-1) {...};
 \node[draw,rounded corners=3pt] (D1) at (8.5, 1) {Débutant 1};
 \node[draw,minimum height=6mm, rounded corners=3pt] (D2) at (8.5,-1) {...};
-\draw (A) -- (M) -- (K) -- (Z);
-\draw (M) -- (X) -- (Y);
+\draw[->] (A) -- (M);
+\draw[->] (M) -- (K);
+\draw[->] (K) -- (Z);
+\draw[->] (M) -- (X);
+\draw[->] (X) -- (Y);
 \end{tikzpicture}
 
+Les pointillés correspondent à un autre parcours. Vous trouverez les autres
+parcours dans la section \ref{parcours} plus loin dans cette notice.
+
 La première question de ce parcours est celle qui se trouve le plus à gauche.
-C’est donc la question \QST{AVO}. Retrouvez-là dans le paquet des questions
+C’est donc la question \QST{AVO}. C’est un code qui ne veut rien dire et sert
+seulement à retrouver la question. Retrouvez-là dans le paquet des questions
 et posez-là face visible devant les joueurs.
 
 Le mode de jeu le plus simple est le \mode{mode collaboratif} : les joueurs
@@ -164,21 +206,22 @@ C’est donc le moment de démarrer un compte à rebours de 10 minutes !
 La première question, codée \QST{AVO}, est :
 
 \begin{quote}
-Tirez une carte \carte{nom de note} et donner la note suivante dans l’horloge
+Tirez une carte \carte{nom de note} et donnez la note suivante dans l’horloge
 des noms de notes. Exemple : Si vous tirez « Fa » il faut dire « Sol ».
 \end{quote}
 
 Pour chaque joueur, il faudra tirer une carte \carte{nom de note} et poser par
 exemple la question (si le nom de note tiré est « Fa ») : « Quelle est la note
-qui suit Fa ? » . Avec tout l’aide nécessaire donné par les cartes « Aide »,
-le joueur finira bien par donner la bonne réponse, ici Sol, et on passera au
-joueur suivant.
+qui suit Fa ? ». Avec toutes les informations fournies par les cartes
+« Aide », le joueur finira bien par donner la bonne réponse, ici Sol, et on
+passera au joueur suivant. Vous pouvez remettre la carte tirée sous son tas.
 
 Un tour de jeu avec la question \QST{AVO} consiste à utiliser cette question
 pour chaque joueur. Suivant les tirages, ils auront donc peut-être des
 questions différentes !
 
-Après trois tours de jeu, on passe à la question suivante.
+Après trois tours de jeu, on passe à la question suivante. Dans ce parcours,
+c’est la question \QST{MAK} qui vient après la question \QST{AVO}.
 
 \subsubsection{Fin de la partie}
 
@@ -203,9 +246,9 @@ les trouverez dans la partie \ref{modes}.
 
 \subsection{Mode collaboratif}
 
-C’est le mode expliqué dans la partie donnée en exemple. Les joueurs ont tous
-gagné s’ils finissent ensemble le parcours qu’ils ont choisi en moins de
-10 minutes (ou toute autre durée convenue à l’avance).
+C’est le mode « contre la montre » expliqué dans la partie donnée en exemple.
+Les joueurs ont tous gagné s’ils finissent ensemble le parcours qu’ils ont
+choisi en moins de 10 minutes (ou toute autre durée convenue à l’avance).
 
 \subsection{Mode avec handicap}
 
@@ -216,10 +259,19 @@ amélioré que les autres joueurs.
 
 \subsection{Mode combat}
 
-En cours d’élaboration.
-
-Les réponses sont chronométrées. Pour gagner, un joueur devrai avoir
+Les réponses sont chronométrées. Pour gagner, un joueur devra avoir
 globalement répondu plus vite que les autres joueurs.
+
+Le plus simple est d’utiliser autant de chronomètres que de joueurs
+(disponibles par exemple sur un téléphone portable ou un site web). Il suffit
+de ne pas remettre les chronométres à zéro entre les questions et de les
+comparer à la fin du parcours.
+
+Si vous n’avez pas autant de chronomètres que de joueurs il vous faudra
+reporter le temps passé sur chaque question dans la feuille de score.
+
+Dans tous les cas, si vous jouez avec par exemple trois tours par question, il
+sera plus simple d’enchaîner les trois questions avec un même joueur.
 
 \section{Liste des parcours de questions} \label{parcours}
 
@@ -234,9 +286,11 @@ globalement répondu plus vite que les autres joueurs.
 \node[draw] (C) at (6,-1) {OLI};
 \node[draw,rounded corners=3pt] (D1) at (8.5, 1) {Débutant 1};
 \node[draw,rounded corners=3pt] (D2) at (8.5,-1) {Débutant 2};
-\draw (A) -- (M);
-\draw (M) -- (K) -- (Z);
-\draw (M) -- (B) -- (C);
+\draw[->] (A) -- (M);
+\draw[->] (M) -- (K);
+\draw[->] (K) -- (Z);
+\draw[->] (M) -- (B);
+\draw[->] (B) -- (C);
 \end{tikzpicture}
 
 \subsection{Niveau Intermédiaire}
@@ -272,10 +326,10 @@ Par exemple, \QST{EXU} se prononce « échou ».
     \QST{AVO} & Tirez une carte \carte{nom de note} et donnez la note suivante
                 dans l’horloge des noms de notes. Exemple : Si vous tirez
                 « Fa » il faut dire « Sol ». \\
-    \QST{KAP} & Tirez une carte \carte{nom de note} et donnez les sept notes
-                suivantes dans l’horloge des noms de notes. Exemple : Si vous
-                tirez « Fa » il faut dire « Fa, Sol, La, Si, Do, Ré, Mi,
-                Fa ». \\
+    \QST{KAP} & Tirez une carte \carte{nom de note}, citez cette note et donnez
+                les sept notes suivantes dans l’horloge des noms de notes.
+                Exemple : Si vous tirez « Fa » il faut dire « Fa, Sol, La, Si,
+                Do, Ré, Mi, Fa ». \\
     \QST{MAK} & Tirez une carte \carte{nom de note} et donnez la note
                 précédente dans l’horloge des noms de notes. Exemple : Si vous
                 tirez « Fa » il faut dire « Mi ». \\
@@ -283,17 +337,43 @@ Par exemple, \QST{EXU} se prononce « échou ».
                 fondamentale. Répétez la fondamentale et donnez la tierce et
                 la quinte. Exemple : Si vous tirez « Fa » il faut dire « Fa,
                 La, Do ». \\
-    \QST{ZIK} & Tirez une carte \carte{nom de note} et donnez les sept notes
-                précédentes dans l’horloge des noms de notes. Exemple : Si
-                vous tirez « Fa » il faut dire « Fa, Mi, Ré, Do, Si, La, Sol,
-                Fa ».
+    \QST{ZIK} & Tirez une carte \carte{nom de note}, citez cette note et donnez
+                les sept notes précédentes dans l’horloge des noms de notes.
+                Exemple : Si vous tirez « Fa » il faut dire « Fa, Mi, Ré, Do,
+                Si, La, Sol, Fa ».
 \end{tabular}
+
+\newpage
+
+\section{Feuilles de score}
+
+Exemple pour le parcours \parcours{Débutants 1} :
+
+\begin{tabular}{ | *{7}{p{0.1cm}cp{0.1cm} |} }
+    \hline
+    Question &&& J1 &&& J2 &&& J3 &&& J4 &&& J5 &&& J6 \\
+    \hline
+    AVO &&&&&&&&&&&&&&&&&& \\
+    \hline
+    MAK &&&&&&&&&&&&&&&&&& \\
+    \hline
+    KAP &&&&&&&&&&&&&&&&&& \\
+    \hline
+    ZIK &&&&&&&&&&&&&&&&&& \\
+    \hline
+\end{tabular}
+
+\scores
+
+\scores
+
+\scores
 
 \newpage
 
 \section{Éléments à découper}
 
-\subsection{Fiches Aide}
+\subsection{Fiches Aide} \label{aide}
 
 \horlogenoms
 \hspace{1cm}
@@ -333,13 +413,29 @@ Par exemple, \QST{EXU} se prononce « échou ».
     \hline
 \end{tabular}
 
+\newpage
+
 \subsection{Cartes pour les tirages au sort}
+
+\subsubsection{Noms de notes}
 
 \begin{tabular}{ | *{7}{p{0.1cm}cp{0.1cm} |} }
     \hline
     & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si & \\
     \hline
     & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si & \\
+    \hline
+\end{tabular}
+
+\subsubsection{Degrés}
+
+\begin{tabular}{ | *{6}{p{0.1cm}cp{0.1cm} |} }
+    \hline
+    & 2nde &&& 3ce &&& 4te &&& 5te &&& 6te &&& 7ème & \\
+    \hline
+    & 2nde &&& 3ce &&& 4te &&& 5te &&& 6te &&& 7ème & \\
+    \hline
+    & 9ème &&& 9ème &&& 11ème &&& 11ème &&& 13ème &&& 13ème & \\
     \hline
 \end{tabular}
 
