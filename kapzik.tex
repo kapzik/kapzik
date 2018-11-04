@@ -52,7 +52,13 @@ Un jeu pour travailler la musique et le solfège}
 \node[draw] (G) at (-0.8, -3.2) {Sol};
 \node[draw] (A) at (-1.8, -2)   {La};
 \node[draw] (B) at (-1.5, -0.7) {Si};
-\draw (C) -- (D) -- (E) -- (F) -- (G) -- (A) -- (B) -- (C);
+\draw[->] (C) -- (D);
+\draw[->] (D) -- (E);
+\draw[->] (E) -- (F);
+\draw[->] (F) -- (G);
+\draw[->] (G) -- (A);
+\draw[->] (A) -- (B);
+\draw[->] (B) -- (C);
 \end{tikzpicture}
 }
 
