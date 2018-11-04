@@ -39,6 +39,11 @@ Un jeu pour travailler la musique et le solfège}
 \newcommand{\QST}[1]
 {\textbf{#1}}
 
+\newcommand{\AVO}[0]
+{Tirez une carte \carte{nom de note} et donnez la note suivante dans l’horloge
+des noms de notes. Exemple : Si vous tirez « Fa » il faut dire « La note qui
+suit Fa est Sol ».}
+
 \newcommand{\mode}[1]
 {\textbf{#1}}
 
@@ -230,8 +235,7 @@ C’est donc le moment de démarrer un compte à rebours de 10 minutes !
 La première question, codée \QST{AVO}, est :
 
 \begin{quote}
-Tirez une carte \carte{nom de note} et donnez la note suivante dans l’horloge
-des noms de notes. Exemple : Si vous tirez « Fa » il faut dire « Sol ».
+\AVO
 \end{quote}
 
 Pour chaque joueur, il faudra tirer une carte \carte{nom de note} et poser par
@@ -348,9 +352,7 @@ Par exemple, \QST{EXU} se prononce « échou ».
                 fondamentale. Répétez la fondamentale et donnez sa tierce (pas
                 la note suivante mais celle d’après. Exemple : Si vous tirez
                 « Fa » il faut dire « Fa, La ». \\
-    \QST{AVO} & Tirez une carte \carte{nom de note} et donnez la note suivante
-                dans l’horloge des noms de notes. Exemple : Si vous tirez
-                « Fa » il faut dire « Sol ». \\
+    \QST{AVO} & \AVO \\
     \QST{KAP} & Tirez une carte \carte{nom de note}, citez cette note et donnez
                 les sept notes suivantes dans l’horloge des noms de notes.
                 Exemple : Si vous tirez « Fa » il faut dire « Fa, Sol, La, Si,
