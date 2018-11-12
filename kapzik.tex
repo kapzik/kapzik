@@ -41,14 +41,14 @@ Un jeu pour travailler la musique et le solfège}
 {\textbf{#1}}
 
 \newcommand{\AVO}[0]
-{Tirez une carte \carte{nom de note} et donnez la note suivante dans l’horloge
+{Tirez une carte \carte{nom de note} et donnez la note suivante dans le cercle
 des noms de notes. Exemple : Si vous tirez « Fa » il faut dire « La note qui
 suit Fa est Sol ».}
 
 \newcommand{\mode}[1]
 {\textbf{#1}}
 
-\newcommand{\horlogenoms}[0]
+\newcommand{\cerclenoms}[0]
 {
 \begin{tikzpicture}
 \node[draw] (C) at (   0,  0)   {Do};
@@ -68,7 +68,7 @@ suit Fa est Sol ».}
 \end{tikzpicture}
 }
 
-\newcommand{\horlogenotes}[0]
+\newcommand{\cerclenotes}[0]
 {
 \begin{tikzpicture}
 \node[draw] (C)  at (   0, -0.2)   {Do};
@@ -186,7 +186,7 @@ Vous pouvez donc ignorer ce qui suit et passer à la section suivante !
     \end{itemize}
 \item Placez les cartes « Aide » à disposition des joueurs :
     \begin{itemize}
-    \item horloge des noms de notes
+    \item cercle des noms de notes
     \item harmonisation de la gamme majeure
     \end{itemize}
 \item Vous pouvez commencer !
@@ -402,20 +402,20 @@ Par exemple, \QST{EXU} se prononce « échou ».
                 « Fa » il faut dire « Fa, La ». \\
     \QST{AVO} & \AVO \\
     \QST{KAP} & Tirez une carte \carte{nom de note}, citez cette note et donnez
-                les sept notes suivantes dans l’horloge des noms de notes.
-                Cela revient à faire un tour d’horloge.
+                les sept notes suivantes dans le cercle des noms de notes.
+                Cela revient à faire un tour de cercle.
                 Exemple : Si vous tirez « Fa » il faut dire « Fa, Sol, La, Si,
                 Do, Ré, Mi, Fa ». \\
     \QST{MAK} & Tirez une carte \carte{nom de note} et donnez la note
-                précédente dans l’horloge des noms de notes. Exemple : Si vous
+                précédente dans le cercle des noms de notes. Exemple : Si vous
                 tirez « Fa » il faut dire « Mi ». \\
     \QST{OLI} & Tirez une carte \carte{nom de note} et considérez que c’est la
                 fondamentale. Répétez la fondamentale et donnez la tierce et
                 la quinte. Exemple : Si vous tirez « Fa » il faut dire « Fa,
                 La, Do ». \\
     \QST{ZIK} & Tirez une carte \carte{nom de note}, citez cette note et donnez
-                les sept notes précédentes dans l’horloge des noms de notes.
-                Cela revient à faire un tour d’horloge à l’envers.
+                les sept notes précédentes dans le cercle des noms de notes.
+                Cela revient à faire un tour de cercle à l’envers.
                 Exemple : Si vous tirez « Fa » il faut dire « Fa, Mi, Ré, Do,
                 Si, La, Sol, Fa ».
 \end{tabular}
@@ -484,9 +484,13 @@ Exemple pour le parcours \parcours{Débutants 1} :
 
 \subsection{Fiches Aide} \label{aide}
 
-\horlogenoms
-\hspace{1cm}
-\horlogenotes
+\subsubsection{Cercle des noms de notes}
+
+\cerclenoms
+
+\subsubsection{Cercle des notes}
+
+\cerclenotes
 
 \vspace{1cm}
 
