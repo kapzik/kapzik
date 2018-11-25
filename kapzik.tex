@@ -24,6 +24,8 @@ Un jeu pour travailler la musique et le solfège}
 \fancyfoot[C]{\thepage}
 \setlength{\headheight}{15pt}
 
+\setlength{\fboxrule}{0.5mm}
+
 % Mes commandes
 \newcommand{\B}[0]
 {$\flat$}
@@ -86,6 +88,19 @@ suit Fa est Sol ».}
 \draw (C) -- (Db) -- (D)  -- (Eb) -- (E)  -- (F) -- (Gb)
           -- (G)  -- (Ab) -- (A)  -- (Bb) -- (B) -- (C);
 \end{tikzpicture}
+}
+
+\newcommand{\cartedec}[1]{
+    \fbox{ %fbox est utilisé pour voir les bords de la minipage
+        \begin{minipage}[t][3cm][t]{4cm}
+            %\vspace{1.1cm}
+            \hspace{0pt}
+            \vfill
+            \centering \Huge{#1}
+            \vfill
+            \hspace{0pt}
+        \end{minipage}
+    }
 }
 
 \newcommand{\scores}[0]
@@ -639,25 +654,19 @@ Exemple pour le parcours \parcours{Débutants 1} :
 
 \subsubsection{Noms de notes}
 
-\begin{tabular}{ | *{7}{p{0.1cm}cp{0.1cm} |} }
-    \hline
-    & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si & \\
-    \hline
-    & Do &&& Ré &&& Mi &&& Fa &&& Sol &&& La &&& Si & \\
-    \hline
-\end{tabular}
+\cartedec{Do} \cartedec{Ré} \cartedec{Mi} \cartedec{Fa}
+\cartedec{Sol} \cartedec{La} \cartedec{Si}
+\cartedec{Do} \cartedec{Ré} \cartedec{Mi} \cartedec{Fa}
+\cartedec{Sol} \cartedec{La} \cartedec{Si}
+\cartedec{Do} \cartedec{Ré} \cartedec{Mi} \cartedec{Fa}
+\cartedec{Sol} \cartedec{La} \cartedec{Si}
 
 \subsubsection{Degrés}
 
-\begin{tabular}{ | *{6}{p{0.1cm}cp{0.1cm} |} }
-    \hline
-    & 2nde &&& 3ce &&& 4te &&& 5te &&& 6te &&& 7ème & \\
-    \hline
-    & 2nde &&& 3ce &&& 4te &&& 5te &&& 6te &&& 7ème & \\
-    \hline
-    & 9ème &&& 9ème &&& 11ème &&& 11ème &&& 13ème &&& 13ème & \\
-    \hline
-\end{tabular}
+\cartedec{2nde} \cartedec{3ce} \cartedec{4te} \cartedec{5te} \cartedec{6te}
+\cartedec{7ème} \cartedec{9ème} \cartedec{11ème} \cartedec{13ème}
+\cartedec{2nde} \cartedec{3ce} \cartedec{4te} \cartedec{5te} \cartedec{6te}
+\cartedec{7ème} \cartedec{9ème} \cartedec{11ème} \cartedec{13ème}
 
 \newpage
 
