@@ -7,6 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{datetime} % access to \currenttime
 \usepackage{hyperref}
+\usepackage{tabularx,graphicx}
 \usepackage{tikz}
 \usetikzlibrary{shapes}
 
@@ -90,17 +91,40 @@ suit Fa est Sol ».}
 \end{tikzpicture}
 }
 
-\newcommand{\cartedec}[1]{
-    \fbox{ %fbox est utilisé pour voir les bords de la minipage
-        \begin{minipage}[t][3cm][t]{4cm}
-            %\vspace{1.1cm}
-            \hspace{0pt}
-            \vfill
-            \centering \Huge{#1}
-            \vfill
-            \hspace{0pt}
+% Un grand merci à CB!
+\newcommand{\quatrecartes}[4]{
+    \begin{tabularx}{\linewidth}{*{4}{|>{\centering}X}|c}
+        \cline{1-4}
+        \begin{minipage}{\linewidth}
+        \begin{center}
+        #1
+        \end{center}
         \end{minipage}
-    }
+        &
+        \begin{minipage}{\linewidth}
+        \begin{center}
+        #2
+        \end{center}
+        \end{minipage}
+        &
+        \begin{minipage}{\linewidth}
+        \begin{center}
+        #3
+        \end{center}
+        \end{minipage}
+        &
+        \begin{minipage}{\linewidth}
+        \begin{center}
+        #4
+        \end{center}
+        \end{minipage}
+        &
+        \begin{minipage}{0.1cm}
+        \vspace*{4cm}
+        \end{minipage}
+        \tabularnewline
+        \cline{1-4}
+    \end{tabularx}
 }
 
 \newcommand{\scores}[0]
@@ -654,20 +678,36 @@ Exemple pour le parcours \parcours{Débutants 1} :
 
 \subsubsection{Noms de notes}
 
-\cartedec{Do} \cartedec{Ré} \cartedec{Mi} \cartedec{Fa}
-\cartedec{Sol} \cartedec{La} \cartedec{Si}
-\cartedec{Do} \cartedec{Ré} \cartedec{Mi} \cartedec{Fa}
-\cartedec{Sol} \cartedec{La} \cartedec{Si}
-\cartedec{Do} \cartedec{Ré} \cartedec{Mi} \cartedec{Fa}
-\cartedec{Sol} \cartedec{La} \cartedec{Si}
+\begin{Huge}
+
+\quatrecartes{Do}{Ré}{Mi}{Fa}
+
+\quatrecartes{Sol}{La}{Si}{Do}
+
+\quatrecartes{Ré}{Mi}{Fa}{Sol}
+
+\quatrecartes{La}{Si}{Do}{Ré}
+
+\quatrecartes{Mi}{Fa}{Sol}{La}
+
+\quatrecartes{Si}{Do}{Ré}{Mi}
+
+\quatrecartes{Fa}{Sol}{La}{Si}
+
+\end{Huge}
 
 \subsubsection{Degrés}
 
-\cartedec{2nde} \cartedec{3ce} \cartedec{4te} \cartedec{5te} \cartedec{6te}
-\cartedec{7ème} \cartedec{9ème} \cartedec{11ème} \cartedec{13ème}
-\cartedec{2nde} \cartedec{3ce} \cartedec{4te} \cartedec{5te} \cartedec{6te}
-\cartedec{7ème} \cartedec{9ème} \cartedec{11ème} \cartedec{13ème}
+\begin{Huge}
 
-\newpage
+\quatrecartes{2nde}{3ce}{4te}{5te}
+
+\quatrecartes{6te}{7ème}{9ème}{11ème}
+
+\quatrecartes{13ème}{2nde}{3ce}{4te}
+
+\quatrecartes{5te}{6te}{7ème}{9ème}
+
+\end{Huge}
 
 \end{document}
