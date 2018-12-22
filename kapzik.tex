@@ -93,37 +93,37 @@ suit Fa est Sol ».}
 
 % Un grand merci à CB!
 \newcommand{\quatrecartes}[4]{
-    \begin{tabularx}{\linewidth}{*{4}{|>{\centering}X}|c}
-        \cline{1-4}
+    \begin{tabularx}{\linewidth}{*{4}{|>{\centering}X|m{0.1cm}}c}
+        \cline{1-1}\cline{3-3}\cline{5-5}\cline{7-7}
         \begin{minipage}{\linewidth}
         \begin{center}
         #1
         \end{center}
-        \end{minipage}
+        \end{minipage}&
         &
         \begin{minipage}{\linewidth}
         \begin{center}
         #2
         \end{center}
-        \end{minipage}
+        \end{minipage}&
         &
         \begin{minipage}{\linewidth}
         \begin{center}
         #3
         \end{center}
-        \end{minipage}
+        \end{minipage}&
         &
         \begin{minipage}{\linewidth}
         \begin{center}
         #4
         \end{center}
-        \end{minipage}
+        \end{minipage}&
         &
         \begin{minipage}{0.1cm}
         \vspace*{4cm}
         \end{minipage}
         \tabularnewline
-        \cline{1-4}
+        \cline{1-1}\cline{3-3}\cline{5-5}\cline{7-7}
     \end{tabularx}
 }
 
